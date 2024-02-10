@@ -6,7 +6,7 @@
       <%= pluralize movies.count, "result" %> for <code><%= params[:query] %></code>
     <% end %>
   </p>
-  <div class="movies">
+  <div class="movies" data-search-movies-target="list">
     <% movies.each do |movie| %>
       <%= render "movie_infos", movie: movie %>
     <% end %>
