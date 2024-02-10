@@ -13,6 +13,7 @@ export default class extends Controller {
 
   update() {
     console.log("TODO: send request in AJAX")
+    console.log(`${this.formTarget.action}`)
     const url = `${this.formTarget.action}?query=${this.inputTarget.value}`
     console.log(url)
       fetch(url, {headers: {"Accept": "text/plain"}})

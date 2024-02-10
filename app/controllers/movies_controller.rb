@@ -1,7 +1,11 @@
 class MoviesController < ApplicationController
   def index
+    # Query: Retrieves movie records from the database.
+    # Ordering: Sorts movies by release year (newest to oldest) and then by title (alphabetically).
     @movies = Movie.order(year: :desc, title: :asc)
 
+    # Verifies if a search query is provided in the incoming request.
+    # If a query exists, filters movie records by title, matching the query string in a case-insensitive manner.
     if params[:query].present?
       @movies = @movies.where("title ILIKE ?", "%#{params[:query]}%")
     end
